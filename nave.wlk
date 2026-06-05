@@ -23,19 +23,36 @@ class Nave{
   method alejarseUnPocoDelSol(){
     direccion = (direccion - 1).max(-10)
   }
-  method prepararViaje(cantAcelera){
-    self.acelerar(cantAcelerar)
-  }
+  method prepararViaje()
 }
 class Baliza inherits Nave { //herencia
   var color 
   methodcambiarColor(unColor){
     color = unColor
   }
-  override method prepararViaje(cantAcelera) { //sobreescribir
+  override method prepararViaje() { //sobreescribir
     color = "verde"
     self.ponerseParaleloAlSol()
-    super(cantAcelera) //hace lo q dice la clase heredada 
   }
+ class Pasajeros inherits Nave {
+  var pasajeros
+  var racionesComida
+  var bebidas
+  method cargarBebidas(cantBebidas){
+    bebidas += cantBebidas
+  }
+  method descargarBebidas(cantBebidas){
+    bebidas = (bebidas - cantBebidas).max(0)
+  }
+  method cargarComida(cantComida){
+    comida += cantComida
+  }
+  method descargarComida(cantComida){
+    comida = (comida - cantComida).max(0)
+  }
+}
+class Combate inherits Nave {
+  
+
 //teminal const NaveBaliza1 = new Baliza(velocidad=10, direccion=0, color = "azul")
 // crea el objeto con la clase 
