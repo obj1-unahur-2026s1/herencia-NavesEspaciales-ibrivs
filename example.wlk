@@ -1,12 +1,3 @@
-object pepita {
-  var energy = 100
-
-  method energy() = energy
-
-  method fly(minutes) {
-    energy = energy - minutes * 3
-  }
-}
 class Nave{
   var velocidad 
   var direccion
@@ -34,10 +25,12 @@ class Nave{
   }
 }
 class Baliza inherits Nave //herencia{
-  var color = 
+  var color 
   methodcambiarColor(unColor){
     color = unColor
   }
   method prepararViaje(){
     color = "verde"
   }
+//teminal const NaveBaliza1 = new Baliza(velocidad=10, direccion=0, color = "azul")
+// crea el objeto con la clase 
