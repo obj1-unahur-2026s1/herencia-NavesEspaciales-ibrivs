@@ -23,14 +23,16 @@ class Nave{
   method alejarseUnPocoDelSol(){
     direccion = (direccion - 1).max(-10)
   }
+  method prepararViaje()
 }
-class Baliza inherits Nave //herencia{
+class Baliza inherits Nave { //herencia
   var color 
   methodcambiarColor(unColor){
     color = unColor
   }
-  method prepararViaje(){
+  override method prepararViaje() { //sobreescribir
     color = "verde"
+    self.ponerseParaleloAlSol()
   }
 //teminal const NaveBaliza1 = new Baliza(velocidad=10, direccion=0, color = "azul")
 // crea el objeto con la clase 
