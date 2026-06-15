@@ -1,13 +1,32 @@
 class Nave{
   var velocidad 
   var direccion
-  var piloto = pilotoA
+  var combustible
+   
+  method avisar()
+  method escapar()
+  method tienePocaActividad() 
+
+  method estaRelajada() = self.estaTranquila() and self.tienePocaActividad()
+  
+  method estaTranquila() = combustible >= 4000 and velocidad < 12000
+  method recibirAtaque() {
+    self.escapar()
+    self.avisar()    
+  }
+
+  method prepararViaje(){
+    combustible += 30000
+    self.acelerar(5000)
+  }
+
   method acelerar(cuanto){
     velocidad = (velocidad + cuanto).min(1000)
   }
   method desacelerar(cuanto){
     velocidad = (velocidad - cuanto).max(0)
   }
+
   method escaparDelSol(){
     direccion += 10
   }
@@ -23,38 +42,4 @@ class Nave{
   method alejarseUnPocoDelSol(){
     direccion = (direccion - 1).max(-10)
   }
-  method prepararViaje()
 }
-class Baliza inherits Nave {
-  var color 
-  method cambiarColor(unColor){
-    color = unColor
-  }
-  override method prepararViaje() { //sobreescribir
-    color = "verde"
-    self.ponerseParaleloAlSol()
-  }
-}
- class Pasajeros inherits Nave {
-  var pasajeros
-  var racionesComida
-  var bebidas
-  method cargarBebidas(cantBebidas){
-    bebidas += cantBebidas
-  }
-  method descargarBebidas(cantBebidas){
-    bebidas = (bebidas - cantBebidas).max(0)
-  }
-  method cargarComida(cantComida){
-    comida += cantComida
-  }
-  method descargarComida(cantComida){
-    comida = (comida - cantComida).max(0)
-  }
-}
-class Combate inherits Nave {
-}
-  
-
-//teminal const NaveBaliza1 = new Baliza(velocidad=10, direccion=0, color = "azul")
-// crea el objeto con la clase 
