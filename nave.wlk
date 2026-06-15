@@ -1,7 +1,7 @@
 class Nave{
   var velocidad 
   var direccion
-  var pioloto = pilotoA
+  var piloto = pilotoA
   method acelerar(cuanto){
     velocidad = (velocidad + cuanto).min(1000)
   }
@@ -25,15 +25,16 @@ class Nave{
   }
   method prepararViaje()
 }
-class Baliza inherits Nave { //herencia
+class Baliza inherits Nave {
   var color 
-  methodcambiarColor(unColor){
+  method cambiarColor(unColor){
     color = unColor
   }
   override method prepararViaje() { //sobreescribir
     color = "verde"
     self.ponerseParaleloAlSol()
   }
+}
  class Pasajeros inherits Nave {
   var pasajeros
   var racionesComida
@@ -52,6 +53,7 @@ class Baliza inherits Nave { //herencia
   }
 }
 class Combate inherits Nave {
+}
   
 
 //teminal const NaveBaliza1 = new Baliza(velocidad=10, direccion=0, color = "azul")
